@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_FundallCodeChallenge_FundallCodeChallengeUITests : NSObject
+@end
+@implementation PodsDummy_Pods_FundallCodeChallenge_FundallCodeChallengeUITests
+@end

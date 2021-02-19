@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15CAE1C9E872D2D114884C51 /* Pods_FundallCodeChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2476272297A713453DC4DB70 /* Pods_FundallCodeChallengeTests.framework */; };
+		3A0E3BDB2728153E877FF015 /* Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF11490C05B1C0CBE7F0E5B /* Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework */; };
+		3F184698A26FEBB1A8143E5C /* Pods_FundallCodeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4D6ACB85B775FEFA8048C8 /* Pods_FundallCodeChallenge.framework */; };
+		CD02D8A825DD564A00EAD3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8A725DD564A00EAD3DB /* AppDelegate.swift */; };
+		CD02D8AA25DD564A00EAD3DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8A925DD564A00EAD3DB /* SceneDelegate.swift */; };
+		CD02D8B225DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8B025DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld */; };
+		CD02D8B425DD564D00EAD3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD02D8B325DD564D00EAD3DB /* Assets.xcassets */; };
+		CD02D8B725DD564D00EAD3DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD02D8B525DD564D00EAD3DB /* LaunchScreen.storyboard */; };
+		CD02D8C225DD564D00EAD3DB /* FundallCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8C125DD564D00EAD3DB /* FundallCodeChallengeTests.swift */; };
+		CD02D8CD25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8CC25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift */; };
+		CD2EC0AF25DFA89100D0E59D /* YourCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0AE25DFA89100D0E59D /* YourCardViewController.swift */; };
+		CD560B7D25DD601A00DEBA8D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */; };
+		CD560B9E25DD7C0600DEBA8D /* FoundersGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9125DD78F800DEBA8D /* FoundersGrotesk-Bold.otf */; };
+		CD560BA225DD7C0D00DEBA8D /* FoundersGrotesk-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8A25DD78F800DEBA8D /* FoundersGrotesk-BoldItalic.otf */; };
+		CD560BA325DD7C0D00DEBA8D /* FoundersGrotesk-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8C25DD78F800DEBA8D /* FoundersGrotesk-MediumItalic.otf */; };
+		CD560BA425DD7C0D00DEBA8D /* FoundersGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8D25DD78F800DEBA8D /* FoundersGrotesk-Regular.otf */; };
+		CD560BA525DD7C0D00DEBA8D /* FoundersGrotesk-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9325DD78F800DEBA8D /* FoundersGrotesk-Semibold.otf */; };
+		CD560BA625DD7C0D00DEBA8D /* FoundersGrotesk-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9425DD78F900DEBA8D /* FoundersGrotesk-SemiboldItalic.otf */; };
+		CD560BA725DD7C0D00DEBA8D /* FoundersGroteskXCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8B25DD78F800DEBA8D /* FoundersGroteskXCond-Bold.otf */; };
+		CD560BA825DD7C0D00DEBA8D /* FoundersGroteskCond-Lt.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8E25DD78F800DEBA8D /* FoundersGroteskCond-Lt.otf */; };
+		CD560BA925DD7C0D00DEBA8D /* FoundersGrotesk-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9225DD78F800DEBA8D /* FoundersGrotesk-Light.otf */; };
+		CD560BAA25DD7C0D00DEBA8D /* FoundersGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9025DD78F800DEBA8D /* FoundersGrotesk-Medium.otf */; };
+		CD560BAB25DD7C0D00DEBA8D /* FoundersGrotesk-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9525DD78F900DEBA8D /* FoundersGrotesk-LightItalic.otf */; };
+		CD560BAC25DD7C0D00DEBA8D /* FoundersGroteskXCond-Lt.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8925DD78F800DEBA8D /* FoundersGroteskXCond-Lt.otf */; };
+		CD560BAD25DD7C0D00DEBA8D /* FoundersGrotesk-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8F25DD78F800DEBA8D /* FoundersGrotesk-RegularItalic.otf */; };
+		CD560BB625DD899D00DEBA8D /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560BB525DD899D00DEBA8D /* UITextField+Extension.swift */; };
+		CD560BC825DDA1F900DEBA8D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560BC725DDA1F900DEBA8D /* LoginViewController.swift */; };
+		CD560BCD25DDD9AC00DEBA8D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560BCC25DDD9AC00DEBA8D /* UIView+Extension.swift */; };
+		CD560BD225DDDC9300DEBA8D /* PasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560BD125DDDC9300DEBA8D /* PasswordLoginViewController.swift */; };
+		CD560BD825DDE68300DEBA8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560BD725DDE68300DEBA8D /* HomeViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD02D8BE25DD564D00EAD3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD02D89C25DD564A00EAD3DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD02D8A325DD564A00EAD3DB;
+			remoteInfo = FundallCodeChallenge;
+		};
+		CD02D8C925DD564D00EAD3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD02D89C25DD564A00EAD3DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD02D8A325DD564A00EAD3DB;
+			remoteInfo = FundallCodeChallenge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14F5D092A22169E5B81DFD74 /* Pods-FundallCodeChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallengeTests/Pods-FundallCodeChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		2476272297A713453DC4DB70 /* Pods_FundallCodeChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FundallCodeChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E191D3F4EB2CBCB6BC9653F /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallenge-FundallCodeChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallenge-FundallCodeChallengeUITests/Pods-FundallCodeChallenge-FundallCodeChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FBB7AFA4984927632FA9BB8 /* Pods-FundallCodeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallenge.release.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallenge/Pods-FundallCodeChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		5A4D6ACB85B775FEFA8048C8 /* Pods_FundallCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FundallCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD02D8A425DD564A00EAD3DB /* FundallCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FundallCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD02D8A725DD564A00EAD3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD02D8A925DD564A00EAD3DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CD02D8B125DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FundallCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
+		CD02D8B325DD564D00EAD3DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD02D8B625DD564D00EAD3DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD02D8B825DD564D00EAD3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD02D8BD25DD564D00EAD3DB /* FundallCodeChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FundallCodeChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD02D8C125DD564D00EAD3DB /* FundallCodeChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundallCodeChallengeTests.swift; sourceTree = "<group>"; };
+		CD02D8C325DD564D00EAD3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD02D8C825DD564D00EAD3DB /* FundallCodeChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FundallCodeChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD02D8CC25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundallCodeChallengeUITests.swift; sourceTree = "<group>"; };
+		CD02D8CE25DD564D00EAD3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD2EC0AE25DFA89100D0E59D /* YourCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCardViewController.swift; sourceTree = "<group>"; };
+		CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		CD560B8925DD78F800DEBA8D /* FoundersGroteskXCond-Lt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGroteskXCond-Lt.otf"; sourceTree = "<group>"; };
+		CD560B8A25DD78F800DEBA8D /* FoundersGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
+		CD560B8B25DD78F800DEBA8D /* FoundersGroteskXCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGroteskXCond-Bold.otf"; sourceTree = "<group>"; };
+		CD560B8C25DD78F800DEBA8D /* FoundersGrotesk-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-MediumItalic.otf"; sourceTree = "<group>"; };
+		CD560B8D25DD78F800DEBA8D /* FoundersGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Regular.otf"; sourceTree = "<group>"; };
+		CD560B8E25DD78F800DEBA8D /* FoundersGroteskCond-Lt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGroteskCond-Lt.otf"; sourceTree = "<group>"; };
+		CD560B8F25DD78F800DEBA8D /* FoundersGrotesk-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-RegularItalic.otf"; sourceTree = "<group>"; };
+		CD560B9025DD78F800DEBA8D /* FoundersGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Medium.otf"; sourceTree = "<group>"; };
+		CD560B9125DD78F800DEBA8D /* FoundersGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		CD560B9225DD78F800DEBA8D /* FoundersGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Light.otf"; sourceTree = "<group>"; };
+		CD560B9325DD78F800DEBA8D /* FoundersGrotesk-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-Semibold.otf"; sourceTree = "<group>"; };
+		CD560B9425DD78F900DEBA8D /* FoundersGrotesk-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		CD560B9525DD78F900DEBA8D /* FoundersGrotesk-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-LightItalic.otf"; sourceTree = "<group>"; };
+		CD560BB525DD899D00DEBA8D /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		CD560BC725DDA1F900DEBA8D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CD560BCC25DDD9AC00DEBA8D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CD560BD125DDDC9300DEBA8D /* PasswordLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLoginViewController.swift; sourceTree = "<group>"; };
+		CD560BD725DDE68300DEBA8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3F506F0DAF80D690B552141 /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallenge-FundallCodeChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallenge-FundallCodeChallengeUITests/Pods-FundallCodeChallenge-FundallCodeChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F02BBD355EFF9EDB41DC7BE4 /* Pods-FundallCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallenge.debug.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallenge/Pods-FundallCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		F058FE649FCE74DACC1A0A83 /* Pods-FundallCodeChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundallCodeChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-FundallCodeChallengeTests/Pods-FundallCodeChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBF11490C05B1C0CBE7F0E5B /* Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD02D8A125DD564A00EAD3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F184698A26FEBB1A8143E5C /* Pods_FundallCodeChallenge.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8BA25DD564D00EAD3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15CAE1C9E872D2D114884C51 /* Pods_FundallCodeChallengeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8C525DD564D00EAD3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0E3BDB2728153E877FF015 /* Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22305D138B87B98C985D3055 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A4D6ACB85B775FEFA8048C8 /* Pods_FundallCodeChallenge.framework */,
+				FBF11490C05B1C0CBE7F0E5B /* Pods_FundallCodeChallenge_FundallCodeChallengeUITests.framework */,
+				2476272297A713453DC4DB70 /* Pods_FundallCodeChallengeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8206354D0A3D51CFAD3FD278 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F02BBD355EFF9EDB41DC7BE4 /* Pods-FundallCodeChallenge.debug.xcconfig */,
+				3FBB7AFA4984927632FA9BB8 /* Pods-FundallCodeChallenge.release.xcconfig */,
+				2E191D3F4EB2CBCB6BC9653F /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.debug.xcconfig */,
+				D3F506F0DAF80D690B552141 /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.release.xcconfig */,
+				F058FE649FCE74DACC1A0A83 /* Pods-FundallCodeChallengeTests.debug.xcconfig */,
+				14F5D092A22169E5B81DFD74 /* Pods-FundallCodeChallengeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD02D89B25DD564A00EAD3DB = {
+			isa = PBXGroup;
+			children = (
+				CD02D8A625DD564A00EAD3DB /* FundallCodeChallenge */,
+				CD02D8C025DD564D00EAD3DB /* FundallCodeChallengeTests */,
+				CD02D8CB25DD564D00EAD3DB /* FundallCodeChallengeUITests */,
+				CD02D8A525DD564A00EAD3DB /* Products */,
+				8206354D0A3D51CFAD3FD278 /* Pods */,
+				22305D138B87B98C985D3055 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CD02D8A525DD564A00EAD3DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD02D8A425DD564A00EAD3DB /* FundallCodeChallenge.app */,
+				CD02D8BD25DD564D00EAD3DB /* FundallCodeChallengeTests.xctest */,
+				CD02D8C825DD564D00EAD3DB /* FundallCodeChallengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD02D8A625DD564A00EAD3DB /* FundallCodeChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				CD2EC0B625DFEC3C00D0E59D /* DataLoader */,
+				CD560BB125DD88F900DEBA8D /* Extensions */,
+				CD560B8825DD78A000DEBA8D /* Fonts */,
+				CD560B7B25DD5FC000DEBA8D /* Scenes */,
+				CD02D8A725DD564A00EAD3DB /* AppDelegate.swift */,
+				CD02D8A925DD564A00EAD3DB /* SceneDelegate.swift */,
+				CD02D8B325DD564D00EAD3DB /* Assets.xcassets */,
+				CD02D8B525DD564D00EAD3DB /* LaunchScreen.storyboard */,
+				CD02D8B825DD564D00EAD3DB /* Info.plist */,
+				CD02D8B025DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld */,
+			);
+			path = FundallCodeChallenge;
+			sourceTree = "<group>";
+		};
+		CD02D8C025DD564D00EAD3DB /* FundallCodeChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD02D8C125DD564D00EAD3DB /* FundallCodeChallengeTests.swift */,
+				CD02D8C325DD564D00EAD3DB /* Info.plist */,
+			);
+			path = FundallCodeChallengeTests;
+			sourceTree = "<group>";
+		};
+		CD02D8CB25DD564D00EAD3DB /* FundallCodeChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CD02D8CC25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift */,
+				CD02D8CE25DD564D00EAD3DB /* Info.plist */,
+			);
+			path = FundallCodeChallengeUITests;
+			sourceTree = "<group>";
+		};
+		CD2EC0B625DFEC3C00D0E59D /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		CD560B7B25DD5FC000DEBA8D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CD560BDF25DF5D4F00DEBA8D /* Card */,
+				CD560BD625DDE66800DEBA8D /* Home */,
+				CD560BC325DD9CC000DEBA8D /* Login */,
+				CD560B8125DD602100DEBA8D /* SignUp */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CD560B8125DD602100DEBA8D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CD560B8825DD78A000DEBA8D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CD560B9125DD78F800DEBA8D /* FoundersGrotesk-Bold.otf */,
+				CD560B8A25DD78F800DEBA8D /* FoundersGrotesk-BoldItalic.otf */,
+				CD560B9225DD78F800DEBA8D /* FoundersGrotesk-Light.otf */,
+				CD560B9525DD78F900DEBA8D /* FoundersGrotesk-LightItalic.otf */,
+				CD560B9025DD78F800DEBA8D /* FoundersGrotesk-Medium.otf */,
+				CD560B8C25DD78F800DEBA8D /* FoundersGrotesk-MediumItalic.otf */,
+				CD560B8D25DD78F800DEBA8D /* FoundersGrotesk-Regular.otf */,
+				CD560B8F25DD78F800DEBA8D /* FoundersGrotesk-RegularItalic.otf */,
+				CD560B9325DD78F800DEBA8D /* FoundersGrotesk-Semibold.otf */,
+				CD560B9425DD78F900DEBA8D /* FoundersGrotesk-SemiboldItalic.otf */,
+				CD560B8E25DD78F800DEBA8D /* FoundersGroteskCond-Lt.otf */,
+				CD560B8B25DD78F800DEBA8D /* FoundersGroteskXCond-Bold.otf */,
+				CD560B8925DD78F800DEBA8D /* FoundersGroteskXCond-Lt.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CD560BB125DD88F900DEBA8D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD560BB525DD899D00DEBA8D /* UITextField+Extension.swift */,
+				CD560BCC25DDD9AC00DEBA8D /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD560BC325DD9CC000DEBA8D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CD560BC725DDA1F900DEBA8D /* LoginViewController.swift */,
+				CD560BD125DDDC9300DEBA8D /* PasswordLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CD560BD625DDE66800DEBA8D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CD560BD725DDE68300DEBA8D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CD560BDF25DF5D4F00DEBA8D /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				CD2EC0AE25DFA89100D0E59D /* YourCardViewController.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD02D8A325DD564A00EAD3DB /* FundallCodeChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD02D8D125DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallenge" */;
+			buildPhases = (
+				505862143551FE539EF82BC6 /* [CP] Check Pods Manifest.lock */,
+				CD02D8A025DD564A00EAD3DB /* Sources */,
+				CD02D8A125DD564A00EAD3DB /* Frameworks */,
+				CD02D8A225DD564A00EAD3DB /* Resources */,
+				7D1AAD9213D4AB8AEB258A11 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FundallCodeChallenge;
+			productName = FundallCodeChallenge;
+			productReference = CD02D8A425DD564A00EAD3DB /* FundallCodeChallenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD02D8BC25DD564D00EAD3DB /* FundallCodeChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD02D8D425DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallengeTests" */;
+			buildPhases = (
+				671757859869AD35B4198265 /* [CP] Check Pods Manifest.lock */,
+				CD02D8B925DD564D00EAD3DB /* Sources */,
+				CD02D8BA25DD564D00EAD3DB /* Frameworks */,
+				CD02D8BB25DD564D00EAD3DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD02D8BF25DD564D00EAD3DB /* PBXTargetDependency */,
+			);
+			name = FundallCodeChallengeTests;
+			productName = FundallCodeChallengeTests;
+			productReference = CD02D8BD25DD564D00EAD3DB /* FundallCodeChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD02D8C725DD564D00EAD3DB /* FundallCodeChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD02D8D725DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallengeUITests" */;
+			buildPhases = (
+				1B60C96D5A2EA1209D63D79F /* [CP] Check Pods Manifest.lock */,
+				CD02D8C425DD564D00EAD3DB /* Sources */,
+				CD02D8C525DD564D00EAD3DB /* Frameworks */,
+				CD02D8C625DD564D00EAD3DB /* Resources */,
+				18CC63FB7816E855CB184F55 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD02D8CA25DD564D00EAD3DB /* PBXTargetDependency */,
+			);
+			name = FundallCodeChallengeUITests;
+			productName = FundallCodeChallengeUITests;
+			productReference = CD02D8C825DD564D00EAD3DB /* FundallCodeChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD02D89C25DD564A00EAD3DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					CD02D8A325DD564A00EAD3DB = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					CD02D8BC25DD564D00EAD3DB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = CD02D8A325DD564A00EAD3DB;
+					};
+					CD02D8C725DD564D00EAD3DB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = CD02D8A325DD564A00EAD3DB;
+					};
+				};
+			};
+			buildConfigurationList = CD02D89F25DD564A00EAD3DB /* Build configuration list for PBXProject "FundallCodeChallenge" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD02D89B25DD564A00EAD3DB;
+			productRefGroup = CD02D8A525DD564A00EAD3DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD02D8A325DD564A00EAD3DB /* FundallCodeChallenge */,
+				CD02D8BC25DD564D00EAD3DB /* FundallCodeChallengeTests */,
+				CD02D8C725DD564D00EAD3DB /* FundallCodeChallengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD02D8A225DD564A00EAD3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD560BA625DD7C0D00DEBA8D /* FoundersGrotesk-SemiboldItalic.otf in Resources */,
+				CD560BAB25DD7C0D00DEBA8D /* FoundersGrotesk-LightItalic.otf in Resources */,
+				CD560BA425DD7C0D00DEBA8D /* FoundersGrotesk-Regular.otf in Resources */,
+				CD560BA725DD7C0D00DEBA8D /* FoundersGroteskXCond-Bold.otf in Resources */,
+				CD560BAC25DD7C0D00DEBA8D /* FoundersGroteskXCond-Lt.otf in Resources */,
+				CD560BA825DD7C0D00DEBA8D /* FoundersGroteskCond-Lt.otf in Resources */,
+				CD560BA325DD7C0D00DEBA8D /* FoundersGrotesk-MediumItalic.otf in Resources */,
+				CD02D8B725DD564D00EAD3DB /* LaunchScreen.storyboard in Resources */,
+				CD560BA525DD7C0D00DEBA8D /* FoundersGrotesk-Semibold.otf in Resources */,
+				CD560B9E25DD7C0600DEBA8D /* FoundersGrotesk-Bold.otf in Resources */,
+				CD560BAA25DD7C0D00DEBA8D /* FoundersGrotesk-Medium.otf in Resources */,
+				CD560BA925DD7C0D00DEBA8D /* FoundersGrotesk-Light.otf in Resources */,
+				CD560BA225DD7C0D00DEBA8D /* FoundersGrotesk-BoldItalic.otf in Resources */,
+				CD02D8B425DD564D00EAD3DB /* Assets.xcassets in Resources */,
+				CD560BAD25DD7C0D00DEBA8D /* FoundersGrotesk-RegularItalic.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8BB25DD564D00EAD3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8C625DD564D00EAD3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18CC63FB7816E855CB184F55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge-FundallCodeChallengeUITests/Pods-FundallCodeChallenge-FundallCodeChallengeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge-FundallCodeChallengeUITests/Pods-FundallCodeChallenge-FundallCodeChallengeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge-FundallCodeChallengeUITests/Pods-FundallCodeChallenge-FundallCodeChallengeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B60C96D5A2EA1209D63D79F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FundallCodeChallenge-FundallCodeChallengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		505862143551FE539EF82BC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FundallCodeChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		671757859869AD35B4198265 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FundallCodeChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D1AAD9213D4AB8AEB258A11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge/Pods-FundallCodeChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge/Pods-FundallCodeChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FundallCodeChallenge/Pods-FundallCodeChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD02D8A025DD564A00EAD3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD560BC825DDA1F900DEBA8D /* LoginViewController.swift in Sources */,
+				CD560BCD25DDD9AC00DEBA8D /* UIView+Extension.swift in Sources */,
+				CD02D8A825DD564A00EAD3DB /* AppDelegate.swift in Sources */,
+				CD02D8AA25DD564A00EAD3DB /* SceneDelegate.swift in Sources */,
+				CD560BD825DDE68300DEBA8D /* HomeViewController.swift in Sources */,
+				CD560BB625DD899D00DEBA8D /* UITextField+Extension.swift in Sources */,
+				CD560BD225DDDC9300DEBA8D /* PasswordLoginViewController.swift in Sources */,
+				CD2EC0AF25DFA89100D0E59D /* YourCardViewController.swift in Sources */,
+				CD560B7D25DD601A00DEBA8D /* SignupViewController.swift in Sources */,
+				CD02D8B225DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8B925DD564D00EAD3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD02D8C225DD564D00EAD3DB /* FundallCodeChallengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD02D8C425DD564D00EAD3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD02D8CD25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD02D8BF25DD564D00EAD3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD02D8A325DD564A00EAD3DB /* FundallCodeChallenge */;
+			targetProxy = CD02D8BE25DD564D00EAD3DB /* PBXContainerItemProxy */;
+		};
+		CD02D8CA25DD564D00EAD3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD02D8A325DD564A00EAD3DB /* FundallCodeChallenge */;
+			targetProxy = CD02D8C925DD564D00EAD3DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD02D8B525DD564D00EAD3DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD02D8B625DD564D00EAD3DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD02D8CF25DD564D00EAD3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CD02D8D025DD564D00EAD3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD02D8D225DD564D00EAD3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F02BBD355EFF9EDB41DC7BE4 /* Pods-FundallCodeChallenge.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD02D8D325DD564D00EAD3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FBB7AFA4984927632FA9BB8 /* Pods-FundallCodeChallenge.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CD02D8D525DD564D00EAD3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F058FE649FCE74DACC1A0A83 /* Pods-FundallCodeChallengeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FundallCodeChallenge.app/FundallCodeChallenge";
+			};
+			name = Debug;
+		};
+		CD02D8D625DD564D00EAD3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14F5D092A22169E5B81DFD74 /* Pods-FundallCodeChallengeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FundallCodeChallenge.app/FundallCodeChallenge";
+			};
+			name = Release;
+		};
+		CD02D8D825DD564D00EAD3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E191D3F4EB2CBCB6BC9653F /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FundallCodeChallenge;
+			};
+			name = Debug;
+		};
+		CD02D8D925DD564D00EAD3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3F506F0DAF80D690B552141 /* Pods-FundallCodeChallenge-FundallCodeChallengeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A3CL8858X;
+				INFOPLIST_FILE = FundallCodeChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decagon.FundallCodeChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FundallCodeChallenge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD02D89F25DD564A00EAD3DB /* Build configuration list for PBXProject "FundallCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD02D8CF25DD564D00EAD3DB /* Debug */,
+				CD02D8D025DD564D00EAD3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD02D8D125DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD02D8D225DD564D00EAD3DB /* Debug */,
+				CD02D8D325DD564D00EAD3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD02D8D425DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD02D8D525DD564D00EAD3DB /* Debug */,
+				CD02D8D625DD564D00EAD3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD02D8D725DD564D00EAD3DB /* Build configuration list for PBXNativeTarget "FundallCodeChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD02D8D825DD564D00EAD3DB /* Debug */,
+				CD02D8D925DD564D00EAD3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CD02D8B025DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD02D8B125DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodel */,
+			);
+			currentVersion = CD02D8B125DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodel */;
+			path = FundallCodeChallenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CD02D89C25DD564A00EAD3DB /* Project object */;
+}
