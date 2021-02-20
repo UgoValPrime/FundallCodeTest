@@ -18,6 +18,19 @@
 		CD02D8C225DD564D00EAD3DB /* FundallCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8C125DD564D00EAD3DB /* FundallCodeChallengeTests.swift */; };
 		CD02D8CD25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02D8CC25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift */; };
 		CD2EC0AF25DFA89100D0E59D /* YourCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0AE25DFA89100D0E59D /* YourCardViewController.swift */; };
+		CD2EC0C025E063A300D0E59D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0BF25E063A300D0E59D /* ApiClient.swift */; };
+		CD2EC0C525E066D200D0E59D /* MainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0C425E066D200D0E59D /* MainNavViewController.swift */; };
+		CD2EC0CA25E0684800D0E59D /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0C925E0684800D0E59D /* SignupModel.swift */; };
+		CD2EC0CF25E069A300D0E59D /* SignupWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0CE25E069A300D0E59D /* SignupWorker.swift */; };
+		CD2EC0D425E06B1300D0E59D /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0D325E06B1300D0E59D /* SignupInteractor.swift */; };
+		CD2EC0D925E06B4200D0E59D /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0D825E06B4200D0E59D /* SignupPresenter.swift */; };
+		CD2EC0F625E109A400D0E59D /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0F525E109A400D0E59D /* LoginWorker.swift */; };
+		CD2EC0FB25E109B800D0E59D /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0FA25E109B800D0E59D /* LoginInteractor.swift */; };
+		CD2EC10025E109CF00D0E59D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC0FF25E109CF00D0E59D /* LoginPresenter.swift */; };
+		CD2EC10625E10BA000D0E59D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC10525E10BA000D0E59D /* LoginModel.swift */; };
+		CD2EC10B25E1154100D0E59D /* PasswordLoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC10A25E1154100D0E59D /* PasswordLoginWorker.swift */; };
+		CD2EC11025E1155900D0E59D /* PasswordLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC10F25E1155900D0E59D /* PasswordLoginInteractor.swift */; };
+		CD2EC11525E1157000D0E59D /* PasswordLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2EC11425E1157000D0E59D /* PasswordLoginPresenter.swift */; };
 		CD560B7D25DD601A00DEBA8D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */; };
 		CD560B9E25DD7C0600DEBA8D /* FoundersGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B9125DD78F800DEBA8D /* FoundersGrotesk-Bold.otf */; };
 		CD560BA225DD7C0D00DEBA8D /* FoundersGrotesk-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD560B8A25DD78F800DEBA8D /* FoundersGrotesk-BoldItalic.otf */; };
@@ -76,6 +89,19 @@
 		CD02D8CC25DD564D00EAD3DB /* FundallCodeChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundallCodeChallengeUITests.swift; sourceTree = "<group>"; };
 		CD02D8CE25DD564D00EAD3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD2EC0AE25DFA89100D0E59D /* YourCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCardViewController.swift; sourceTree = "<group>"; };
+		CD2EC0BF25E063A300D0E59D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CD2EC0C425E066D200D0E59D /* MainNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavViewController.swift; sourceTree = "<group>"; };
+		CD2EC0C925E0684800D0E59D /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		CD2EC0CE25E069A300D0E59D /* SignupWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupWorker.swift; sourceTree = "<group>"; };
+		CD2EC0D325E06B1300D0E59D /* SignupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		CD2EC0D825E06B4200D0E59D /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		CD2EC0F525E109A400D0E59D /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		CD2EC0FA25E109B800D0E59D /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		CD2EC0FF25E109CF00D0E59D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		CD2EC10525E10BA000D0E59D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		CD2EC10A25E1154100D0E59D /* PasswordLoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLoginWorker.swift; sourceTree = "<group>"; };
+		CD2EC10F25E1155900D0E59D /* PasswordLoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLoginInteractor.swift; sourceTree = "<group>"; };
+		CD2EC11425E1157000D0E59D /* PasswordLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLoginPresenter.swift; sourceTree = "<group>"; };
 		CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		CD560B8925DD78F800DEBA8D /* FoundersGroteskXCond-Lt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGroteskXCond-Lt.otf"; sourceTree = "<group>"; };
 		CD560B8A25DD78F800DEBA8D /* FoundersGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FoundersGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -187,6 +213,7 @@
 				CD02D8B525DD564D00EAD3DB /* LaunchScreen.storyboard */,
 				CD02D8B825DD564D00EAD3DB /* Info.plist */,
 				CD02D8B025DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld */,
+				CD2EC0C425E066D200D0E59D /* MainNavViewController.swift */,
 			);
 			path = FundallCodeChallenge;
 			sourceTree = "<group>";
@@ -212,6 +239,7 @@
 		CD2EC0B625DFEC3C00D0E59D /* DataLoader */ = {
 			isa = PBXGroup;
 			children = (
+				CD2EC0BF25E063A300D0E59D /* ApiClient.swift */,
 			);
 			path = DataLoader;
 			sourceTree = "<group>";
@@ -231,6 +259,10 @@
 			isa = PBXGroup;
 			children = (
 				CD560B7C25DD601A00DEBA8D /* SignupViewController.swift */,
+				CD2EC0C925E0684800D0E59D /* SignupModel.swift */,
+				CD2EC0CE25E069A300D0E59D /* SignupWorker.swift */,
+				CD2EC0D325E06B1300D0E59D /* SignupInteractor.swift */,
+				CD2EC0D825E06B4200D0E59D /* SignupPresenter.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -269,6 +301,13 @@
 			children = (
 				CD560BC725DDA1F900DEBA8D /* LoginViewController.swift */,
 				CD560BD125DDDC9300DEBA8D /* PasswordLoginViewController.swift */,
+				CD2EC0F525E109A400D0E59D /* LoginWorker.swift */,
+				CD2EC0FA25E109B800D0E59D /* LoginInteractor.swift */,
+				CD2EC0FF25E109CF00D0E59D /* LoginPresenter.swift */,
+				CD2EC10525E10BA000D0E59D /* LoginModel.swift */,
+				CD2EC10A25E1154100D0E59D /* PasswordLoginWorker.swift */,
+				CD2EC10F25E1155900D0E59D /* PasswordLoginInteractor.swift */,
+				CD2EC11425E1157000D0E59D /* PasswordLoginPresenter.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -539,15 +578,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2EC0C025E063A300D0E59D /* ApiClient.swift in Sources */,
+				CD2EC11525E1157000D0E59D /* PasswordLoginPresenter.swift in Sources */,
 				CD560BC825DDA1F900DEBA8D /* LoginViewController.swift in Sources */,
 				CD560BCD25DDD9AC00DEBA8D /* UIView+Extension.swift in Sources */,
+				CD2EC0F625E109A400D0E59D /* LoginWorker.swift in Sources */,
+				CD2EC10025E109CF00D0E59D /* LoginPresenter.swift in Sources */,
+				CD2EC10625E10BA000D0E59D /* LoginModel.swift in Sources */,
 				CD02D8A825DD564A00EAD3DB /* AppDelegate.swift in Sources */,
+				CD2EC10B25E1154100D0E59D /* PasswordLoginWorker.swift in Sources */,
 				CD02D8AA25DD564A00EAD3DB /* SceneDelegate.swift in Sources */,
 				CD560BD825DDE68300DEBA8D /* HomeViewController.swift in Sources */,
 				CD560BB625DD899D00DEBA8D /* UITextField+Extension.swift in Sources */,
+				CD2EC0FB25E109B800D0E59D /* LoginInteractor.swift in Sources */,
+				CD2EC0C525E066D200D0E59D /* MainNavViewController.swift in Sources */,
 				CD560BD225DDDC9300DEBA8D /* PasswordLoginViewController.swift in Sources */,
 				CD2EC0AF25DFA89100D0E59D /* YourCardViewController.swift in Sources */,
+				CD2EC0CA25E0684800D0E59D /* SignupModel.swift in Sources */,
+				CD2EC0D425E06B1300D0E59D /* SignupInteractor.swift in Sources */,
+				CD2EC11025E1155900D0E59D /* PasswordLoginInteractor.swift in Sources */,
+				CD2EC0CF25E069A300D0E59D /* SignupWorker.swift in Sources */,
 				CD560B7D25DD601A00DEBA8D /* SignupViewController.swift in Sources */,
+				CD2EC0D925E06B4200D0E59D /* SignupPresenter.swift in Sources */,
 				CD02D8B225DD564A00EAD3DB /* FundallCodeChallenge.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,22 @@
 import UIKit
 import QuartzCore
 
-class LoginViewController: UIViewController {
+protocol PreLogInDisplayLogic {
+   func displayResponse(prompt: GetUserDataResponse)
+   func displayError(prompt: String)
+}
+
+class LoginViewController: UIViewController, PreLogInDisplayLogic {
+    
+    func displayResponse(prompt: GetUserDataResponse) {
+        leftLifestyleLabel.attributedText = NSMutableAttributedString(string: "\(prompt.success.data.firstName)'s", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        createAccountLabel.attributedText = NSMutableAttributedString(string: "Not \(prompt.success.data.firstName)?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+       }
+       
+       func displayError(prompt: String) {
+          presentAlertForError(with: prompt)
+       }
+    
     var logoImageView = UIImageView()
     var lifestyleView = UIView()
     var switchAccountView = UIView()
@@ -19,8 +34,11 @@ class LoginViewController: UIViewController {
     var switchAccountButton = UIButton()
     var createAccountLabel = UILabel()
     var createAccountButton = UIButton()
+    var paragraphStyle = NSMutableParagraphStyle()
     var passwordButton = UIButton()
     var biometricButton = UIButton()
+    var interactor : PreLogInBusinessLogic?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addBackgroundImage(image: "loginBackground")
@@ -37,7 +55,26 @@ class LoginViewController: UIViewController {
         setupRightCreateAccountLabel()
         setupBiometricButton()
         setupPasswordButton()
+        setUpDependencies()
+        interactor?.getUserData()
     }
+    
+    func setUpDependencies() {
+       let interactor = PreLogInInteractor()
+       let worker = PreLogInWorker()
+       let presenter = PreLogInPresenter()
+       let networkClient = GetUserDataApiClient()
+       
+       interactor.worker = worker
+       interactor.presenter = presenter
+       
+       worker.networkClient = networkClient
+       
+       presenter.view = self
+       
+       self.interactor = interactor
+    }
+    
     
     func navigationBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -190,7 +227,7 @@ class LoginViewController: UIViewController {
             biometricButton.layer.borderWidth = 1
             biometricButton.layer.borderColor = UIColor(red: 0.302, green: 0.91, blue: 0.592, alpha: 1).cgColor
             biometricButton.isUserInteractionEnabled = true
-            let loginLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressLogin))
+            let loginLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressSignin))
             biometricButton.addGestureRecognizer(loginLabelTapGesture)
             biometricButton.snp.makeConstraints { (make) in
                 make.centerX.equalTo(biometricLabel)
@@ -236,7 +273,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func didPressLogin(){
+    @objc func didPressSignin(){
         let vc = HomeViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

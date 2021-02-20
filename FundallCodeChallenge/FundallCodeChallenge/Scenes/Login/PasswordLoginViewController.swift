@@ -6,8 +6,37 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+    
+protocol LogInDisplayLogic {
+   func displayResponse(prompt: LogInResponse)
+   func displayError(prompt: String)
+}
 
-class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
+
+class PasswordLoginViewController: UIViewController, UITextFieldDelegate, LogInDisplayLogic {
+    
+    func displayResponse(prompt: LogInResponse) {
+         if prompt.success.status == "SUCCESS" {
+            preloader.stopAnimating()
+            activityLoader.isHidden = true
+            let view = UINavigationController(rootViewController: HomeViewController())
+            view.modalPresentationStyle = .fullScreen
+            present(view, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(prompt.success.user.accessToken, forKey: "accessToken")
+            UserDefaults.standard.set(prompt.success.user.email, forKey: "email")
+            UserDefaults.standard.set(prompt.success.user.tokenType, forKey: "tokenType")
+            UserDefaults.standard.set(prompt.success.user.firstName, forKey: "firstName")
+         }
+      }
+      
+      func displayError(prompt: String) {
+         preloader.stopAnimating()
+         activityLoader.isHidden = true
+         presentAlertForError(with: "Something went wrong. please make sure your login details are correct, and try again.")
+      }
+    
     var paragraphStyle = NSMutableParagraphStyle()
     var titleLabelView = UIView()
     var profileImageView = UIImageView()
@@ -16,7 +45,25 @@ class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
     let createAccountView = UIView()
     var createAccountButton = UIButton()
     var loginButton = UIButton()
+    var activityLoader = UIView()
+    var interactor : LogInBusinessLogic?
+    var preloader = NVActivityIndicatorView(frame: .zero, type: .audioEqualizer, color: .systemGreen, padding: .none)
 
+    func setUpDependencies() {
+          let interactor = LogInInteractor()
+          let worker = LogInWorker()
+          let presenter = LogInPresenter()
+          let networkClient = LogInApiClient()
+          
+          interactor.worker = worker
+          interactor.presenter = presenter
+          
+          worker.networkClient = networkClient
+          
+          presenter.view = self
+          
+          self.interactor = interactor
+       }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +76,27 @@ class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
         setupPasswordField()
         setupLoginButton()
         setUpCreateAccountView()
+        setupLoader()
+        setUpDependencies()
     }
+    
+    
+    func setupLoader() {
+          activityLoader = UIView()
+          view.addSubview(activityLoader)
+          activityLoader.layer.cornerRadius = 10
+          activityLoader.addSubview(preloader)
+          activityLoader.isHidden = true
+          preloader.snp.makeConstraints { (make) in
+             make.centerX.equalTo(view)
+             make.centerY.equalTo(view)
+             make.height.width.equalTo(30)
+          }
+          activityLoader.snp.makeConstraints { (make) in
+             make.height.width.equalTo(51)
+             make.center.equalTo(view)
+          }
+       }
     
     func setupTitleLabel() {
         view.addSubview(titleLabelView)
@@ -74,7 +141,7 @@ class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
         let titleLabel = UILabel()
         userDetailsView.addSubview(titleLabel)
         paragraphStyle.lineHeightMultiple = 1.1
-        titleLabel.attributedText = NSMutableAttributedString(string: "We miss you, Chimdi", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        titleLabel.attributedText = NSMutableAttributedString(string: "We Miss you \(UserDefaults.standard.object(forKey: "firstName") ?? "")", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         titleLabel.textColor = .label
         titleLabel.font = UIFont(name: "FoundersGrotesk-Medium", size: 27)
         titleLabel.snp.makeConstraints { (make) in
@@ -84,7 +151,7 @@ class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
         
         let subTitleLabel = UILabel()
         userDetailsView.addSubview(subTitleLabel)
-        subTitleLabel.attributedText = NSMutableAttributedString(string: "chimdiifeoluwa@gmail.com", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        subTitleLabel.attributedText = NSMutableAttributedString(string: "\(UserDefaults.standard.object(forKey: "email") ?? "")", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         subTitleLabel.textColor = .label
         subTitleLabel.font = UIFont(name: "FoundersGrotesk-RegularItalic", size: 15)
         subTitleLabel.snp.makeConstraints { (make) in
@@ -175,10 +242,23 @@ class PasswordLoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func didPressLogin(){
-        let vc = HomeViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    @objc func dismissKeyboard() { view.endEditing(true) }
+       
+       @objc func didPressLogin() {
+          let passwordText = passwordTextField.text
+          
+          if passwordText?.isEmpty == false {
+             if let passwordText = passwordText {
+                let logInRequest = LogInRequest(email: "\(UserDefaults.standard.object(forKey: "email") ?? "\(UserDefaults.standard.object(forKey: "registerationEmail") ?? "")")", password: passwordText)
+                
+                interactor?.logIn(with: logInRequest)
+                activityLoader.isHidden = false
+                preloader.startAnimating()
+             }
+          } else {
+             presentAlertForError(with: "Input field is empty")
+          }
+       }
     
     @objc func didPressCreateAccount(){
         let vc = SignupViewController()

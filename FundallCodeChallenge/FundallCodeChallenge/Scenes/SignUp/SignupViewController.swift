@@ -7,8 +7,34 @@
 
 import UIKit
 import SnapKit
+import NVActivityIndicatorView
 
-class SignupViewController: UIViewController {
+protocol SignUpDisplayLogic {
+    func displayResponse(prompt: SignUpResponse)
+    func displayError(prompt: String)
+}
+
+class SignupViewController: UIViewController, SignUpDisplayLogic {
+    
+    func displayResponse(prompt: SignUpResponse) {
+        if prompt.success.status == "SUCCESS" {
+            preloader.stopAnimating()
+            activityLoader.isHidden = true
+            
+            let view = UINavigationController(rootViewController: LoginViewController())
+            view.modalPresentationStyle = .fullScreen
+            present(view, animated: true, completion: nil)
+            
+            
+            UserDefaults.standard.set(emailTextField.text, forKey: "registerationEmail")
+        }
+    }
+    
+    func displayError(prompt: String) {
+        preloader.stopAnimating()
+        activityLoader.isHidden = true
+    }
+    
     
     var titleLabel = UILabel()
     var miniTitleLabel = UILabel()
@@ -23,10 +49,15 @@ class SignupViewController: UIViewController {
     var signUpButton = UIButton()
     var fundallColorOne = UIColor(red: 0.298, green: 0.91, blue: 0.584, alpha: 1).cgColor
     var fundallColorOnee = UIColor(red: 0.298, green: 0.91, blue: 0.584, alpha: 1)
+    var interactor : SignUpBusinessLogic?
+    var activityLoader = UIView()
+    var preloader = NVActivityIndicatorView(frame: .zero, type: .audioEqualizer, color: .systemGreen, padding: .none)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationBar()
+        setUpDependencies()
         setupTitleLabel()
         setupMiniTitleLabel()
         setUpScrollView()
@@ -34,10 +65,24 @@ class SignupViewController: UIViewController {
         setUpSignUpButton()
         setUpExistingMemberButton()
         setUpTermsAndConditionText()
+        setupPreloader()
         
-
+        
     }
-
+    
+    func setUpDependencies() {
+        let interactor = SignupInteractor()
+        let worker = SignUpWorker()
+        let presenter = SignUpPresenter()
+        let networkClient = SignUpApiClient()
+        
+        interactor.worker = worker
+        interactor.presenter = presenter
+        worker.networkClient = networkClient
+        presenter.view = self
+        self.interactor = interactor
+    }
+    
     func navigationBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -45,12 +90,12 @@ class SignupViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
         let newBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(leftMethod))
         newBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "FoundersGrotesk-Regular", size: 14) ?? UIFont()], for: .normal)
-            self.navigationItem.leftBarButtonItem = newBtn
+        self.navigationItem.leftBarButtonItem = newBtn
         let rightBtn = UIBarButtonItem(title: "Benefits", style: .plain, target: self, action: #selector(rightMethod))
         rightBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "FoundersGrotesk-Regular", size: 14) ?? UIFont()], for: .normal)
-
-            self.navigationItem.rightBarButtonItem = rightBtn
-        }
+        
+        self.navigationItem.rightBarButtonItem = rightBtn
+    }
     
     @objc func leftMethod() {
         
@@ -85,29 +130,29 @@ class SignupViewController: UIViewController {
         }
     }
     
-
+    
     
     func setUpScrollView() {
-       view.addSubview(scrollView)
-       scrollView.frame = self.view.bounds
-       scrollView.autoresizingMask = .flexibleHeight
-       scrollView.contentSize = CGSize(width: view.frame.size.width, height: 600)
-       scrollView.showsHorizontalScrollIndicator = false
-       scrollView.showsVerticalScrollIndicator = false
-       scrollView.bounces = true
-    
-       
-       scrollView.snp.makeConstraints { (make) in
-        make.top.equalTo(miniTitleLabel.snp.bottom).offset(94)
-          make.bottom.equalTo(view)
-          make.left.equalTo(view)
-          make.right.equalTo(view)
-       }
+        view.addSubview(scrollView)
+        scrollView.frame = self.view.bounds
+        scrollView.autoresizingMask = .flexibleHeight
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 600)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.bounces = true
+        
+        
+        scrollView.snp.makeConstraints { (make) in
+            make.top.equalTo(miniTitleLabel.snp.bottom).offset(94)
+            make.bottom.equalTo(view)
+            make.left.equalTo(view)
+            make.right.equalTo(view)
+        }
     }
     
     func setUpRegistrationStackView() {
-       firstNameTextField = UITextField()
-       firstNameTextField.placeholder = "First name"
+        firstNameTextField = UITextField()
+        firstNameTextField.placeholder = "First name"
         firstNameTextField.setValue(UIFont(name: "FoundersGrotesk-Regular", size: 12.0),forKeyPath: "placeholderLabel.font")
         let firstLineView = UIView()
         firstNameTextField.addSubview(firstLineView)
@@ -119,9 +164,9 @@ class SignupViewController: UIViewController {
         }
         firstLineView.backgroundColor = fundallColorOnee
         firstNameTextField.setupLeftImage(imageName: "user")
-
-       let lastNameTextField = UITextField()
-       lastNameTextField.placeholder = "Last name"
+        
+        lastNameTextField = UITextField()
+        lastNameTextField.placeholder = "Last name"
         lastNameTextField.setValue(UIFont(name: "FoundersGrotesk-Regular", size: 12.0),forKeyPath: "placeholderLabel.font")
         let lastLineView = UIView()
         lastNameTextField.addSubview(lastLineView)
@@ -134,17 +179,17 @@ class SignupViewController: UIViewController {
         lastLineView.backgroundColor = fundallColorOnee
         lastNameTextField.setupLeftImage(imageName: "user")
         
-      
-       
-       
-       nameStackView.addArrangedSubview(firstNameTextField)
-       nameStackView.addArrangedSubview(lastNameTextField)
-       nameStackView.axis = .horizontal
-       nameStackView.distribution = .fillEqually
-       nameStackView.spacing = 25
-       
-       let emailTextField = UITextField()
-       emailTextField.placeholder = "Email address"
+        
+        
+        
+        nameStackView.addArrangedSubview(firstNameTextField)
+        nameStackView.addArrangedSubview(lastNameTextField)
+        nameStackView.axis = .horizontal
+        nameStackView.distribution = .fillEqually
+        nameStackView.spacing = 25
+        
+        emailTextField = UITextField()
+        emailTextField.placeholder = "Email address"
         emailTextField.setValue(UIFont(name: "FoundersGrotesk-Regular", size: 12.0),forKeyPath: "placeholderLabel.font")
         let emailLineView = UIView()
         emailTextField.addSubview(emailLineView)
@@ -156,10 +201,10 @@ class SignupViewController: UIViewController {
         }
         emailLineView.backgroundColor = fundallColorOnee
         emailTextField.setupLeftImage(imageName: "conversation")
-       
-       
-       let phoneNumberTextField = UITextField()
-       phoneNumberTextField.placeholder = "Phone number"
+        
+        
+        phoneNumberTextField = UITextField()
+        phoneNumberTextField.placeholder = "Phone number"
         phoneNumberTextField.setValue(UIFont(name: "FoundersGrotesk-Regular", size: 12.0),forKeyPath: "placeholderLabel.font")
         let phoneLineView = UIView()
         phoneNumberTextField.addSubview(phoneLineView)
@@ -171,9 +216,9 @@ class SignupViewController: UIViewController {
         }
         phoneLineView.backgroundColor = fundallColorOnee
         phoneNumberTextField.setupLeftImage(imageName: "phone")
-       
-       let passwordTextField = UITextField()
-       passwordTextField.placeholder = "Password"
+        
+        passwordTextField = UITextField()
+        passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.setValue(UIFont(name: "FoundersGrotesk-Regular", size: 12.0),forKeyPath: "placeholderLabel.font")
         let passwordLineView = UIView()
@@ -188,134 +233,177 @@ class SignupViewController: UIViewController {
         
         passwordTextField.enablePasswordToggle()
         passwordTextField.setupLeftImage(imageName: "key")
-       
-       let inviteCodeLabel = UILabel()
-       inviteCodeLabel.text = "Got an invite code?"
-       inviteCodeLabel.textColor = UIColor(red: 0.298, green: 0.91, blue: 0.584, alpha: 1)
-       inviteCodeLabel.font = UIFont(name: "FoundersGrotesk-Regular", size: 11)
         
-       
-       registrationStackView.addArrangedSubview(nameStackView)
-       registrationStackView.addArrangedSubview(emailTextField)
-       registrationStackView.addArrangedSubview(phoneNumberTextField)
-       registrationStackView.addArrangedSubview(passwordTextField)
-       registrationStackView.addArrangedSubview(inviteCodeLabel)
-       scrollView.addSubview(registrationStackView)
-       registrationStackView.axis = .vertical
-       registrationStackView.distribution = .equalSpacing
-       registrationStackView.spacing = 40
-       registrationStackView.snp.makeConstraints { (make) in
-          make.top.equalTo(scrollView)
-          make.left.equalTo(view).offset(27)
-          make.right.equalTo(view).offset(-27)
-       }
-       
+        let inviteCodeLabel = UILabel()
+        inviteCodeLabel.text = "Got an invite code?"
+        inviteCodeLabel.textColor = UIColor(red: 0.298, green: 0.91, blue: 0.584, alpha: 1)
+        inviteCodeLabel.font = UIFont(name: "FoundersGrotesk-Regular", size: 11)
+        
+        
+        registrationStackView.addArrangedSubview(nameStackView)
+        registrationStackView.addArrangedSubview(emailTextField)
+        registrationStackView.addArrangedSubview(phoneNumberTextField)
+        registrationStackView.addArrangedSubview(passwordTextField)
+        registrationStackView.addArrangedSubview(inviteCodeLabel)
+        scrollView.addSubview(registrationStackView)
+        registrationStackView.axis = .vertical
+        registrationStackView.distribution = .equalSpacing
+        registrationStackView.spacing = 40
+        registrationStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(scrollView)
+            make.left.equalTo(view).offset(27)
+            make.right.equalTo(view).offset(-27)
+        }
+        
     }
     
     func setUpSignUpButton() {
-       scrollView.addSubview(signUpButton)
-       signUpButton.layer.cornerRadius = 3
-       signUpButton.backgroundColor = UIColor(named: "fundallColorOne")
-       signUpButton.setTitle("signup".uppercased(), for: .normal)
-       signUpButton.setTitleColor(.black, for: .normal)
-       signUpButton.titleLabel?.font = UIFont(name: "FoundersGrotesk-Regular", size: 15)
-       signUpButton.addTarget(self, action: #selector(didPressSignUpBtn), for: .touchUpInside)
-       signUpButton.snp.makeConstraints { (make) in
-          make.centerX.equalTo(scrollView)
-          make.width.equalTo(198)
-          make.height.equalTo(32)
-          make.top.equalTo(registrationStackView.snp.bottom).offset(32)
-       }
+        scrollView.addSubview(signUpButton)
+        signUpButton.layer.cornerRadius = 3
+        signUpButton.backgroundColor = UIColor(named: "fundallColorOne")
+        signUpButton.setTitle("signup".uppercased(), for: .normal)
+        signUpButton.setTitleColor(.black, for: .normal)
+        signUpButton.titleLabel?.font = UIFont(name: "FoundersGrotesk-Regular", size: 15)
+        signUpButton.addTarget(self, action: #selector(didPressSignUpBtn), for: .touchUpInside)
+        signUpButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(scrollView)
+            make.width.equalTo(198)
+            make.height.equalTo(32)
+            make.top.equalTo(registrationStackView.snp.bottom).offset(32)
+        }
+    }
+    
+    func setupPreloader() {
+        activityLoader = UIView()
+        view.addSubview(activityLoader)
+        activityLoader.backgroundColor = UIColor(named: "FundallGreen")
+        activityLoader.layer.cornerRadius = 10
+        activityLoader.addSubview(preloader)
+        activityLoader.isHidden = true
+        preloader.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view)
+            make.centerY.equalTo(view)
+            make.height.width.equalTo(30)
+        }
+        activityLoader.snp.makeConstraints { (make) in
+            make.height.width.equalTo(60)
+            make.center.equalTo(view)
+        }
     }
     
     func setUpExistingMemberButton() {
-       let label = UILabel()
-       let button = UILabel()
-       scrollView.addSubview(label)
-       scrollView.addSubview(button)
-       
-       label.text = "Already a member?"
-       label.font = UIFont(name: "FoundersGrotesk-Light", size: 12)
-       
-       button.text = "Log In"
-       button.font = UIFont(name: "FoundersGrotesk-Medium", size: 12)
-       button.isUserInteractionEnabled = true
-       
-       let loginLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressLogin))
-       button.addGestureRecognizer(loginLabelTapGesture)
-       
-       label.snp.makeConstraints { (make) in
-          make.centerX.equalTo(scrollView).offset(-15)
-          make.top.equalTo(signUpButton.snp.bottom).offset(20)
-       }
-       
-       button.snp.makeConstraints { (make) in
-          make.centerX.equalTo(scrollView).offset(47)
-          make.top.equalTo(signUpButton.snp.bottom).offset(20)
-       }
-       
-       
+        let label = UILabel()
+        let button = UILabel()
+        scrollView.addSubview(label)
+        scrollView.addSubview(button)
+        
+        label.text = "Already a member?"
+        label.font = UIFont(name: "FoundersGrotesk-Light", size: 12)
+        
+        button.text = "Log In"
+        button.font = UIFont(name: "FoundersGrotesk-Medium", size: 12)
+        button.isUserInteractionEnabled = true
+        
+        let loginLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressLogin))
+        button.addGestureRecognizer(loginLabelTapGesture)
+        
+        label.snp.makeConstraints { (make) in
+            make.centerX.equalTo(scrollView).offset(-15)
+            make.top.equalTo(signUpButton.snp.bottom).offset(20)
+        }
+        
+        button.snp.makeConstraints { (make) in
+            make.centerX.equalTo(scrollView).offset(47)
+            make.top.equalTo(signUpButton.snp.bottom).offset(20)
+        }
+        
+        
     }
+    
     @objc func didPressSignUpBtn() {
-       let firstNameText = firstNameTextField.text
-       let lastNameText = lastNameTextField.text
-       let emailAddressText = emailTextField.text
-       let phoneNumberText = phoneNumberTextField.text
-       let passwordText = passwordTextField.text
-       
-       if (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) {
-          if emailAddressText?.isValidEmail ?? false {
-             
-             //create the account
-//             if let firstNameText = firstNameText, let lastNameText = lastNameText, let emailAddressText = emailAddressText, let passwordText = passwordText {
-//                let signUpRequest = SignUpRequest(firstName: firstNameText, lastName: lastNameText, email: emailAddressText, password: passwordText, confirmPassword: passwordText)
-//
-//                interactor?.signUp(with: signUpRequest)
-//                activityLoader.isHidden = false
-//                preloader.startAnimating()
-//             }
-             
-          } else {
-             presentAlertForError(with: "Please make sure the email address provided is valid.")
-          }
-       } else if (firstNameText?.isEmpty == true && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
-                   (firstNameText?.isEmpty == false && lastNameText?.isEmpty == true && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
-                   (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == true && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
-                   (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == true && passwordText?.isEmpty == false) ||
-                   (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == true)
-       {
-          presentAlertForError(with: "Some fields are still empty, please check again.")
-          
-       } else {
-          presentAlertForError(with: "Input fields are empty")
-       }
+        let firstNameText = firstNameTextField.text
+        let lastNameText = lastNameTextField.text
+        let emailAddressText = emailTextField.text
+        let phoneNumberText = phoneNumberTextField.text
+        let passwordText = passwordTextField.text
+        
+        print(firstNameTextField.text, lastNameTextField.text, emailTextField.text, phoneNumberTextField.text, passwordTextField.text)
+  
+        
+        if (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) {
+            if emailAddressText?.isValidEmail ?? false {
+
+        
+                if let firstNameText = firstNameText, let lastNameText = lastNameText, let emailAddressText = emailAddressText, let passwordText = passwordText {
+                    let signUpRequest = SignUpRequest(firstName: firstNameText, lastName: lastNameText, email: emailAddressText, password: passwordText, confirmPassword: passwordText)
+
+                    interactor?.signUp(with: signUpRequest)
+                    activityLoader.isHidden = false
+                    preloader.startAnimating()
+                }
+
+            } else {
+                presentAlertForError(with: "Please make sure the email address provided is valid.")
+            }
+        } else if (firstNameText?.isEmpty == true && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
+                    (firstNameText?.isEmpty == false && lastNameText?.isEmpty == true && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
+                    (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == true && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == false) ||
+                    (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == true && passwordText?.isEmpty == false) ||
+                    (firstNameText?.isEmpty == false && lastNameText?.isEmpty == false && emailAddressText?.isEmpty == false && phoneNumberText?.isEmpty == false && passwordText?.isEmpty == true)
+        {
+            presentAlertForError(with: "Some fields are still empty, please check again.")
+
+        } else {
+            presentAlertForError(with: "Input fields are empty")
+        }
     }
+    
+    
     @objc func didPressLogin() {
-      let vc = LoginViewController()
+        let vc = LoginViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    @objc func dismissKeyboard() { view.endEditing(true)}
+    
     func setUpTermsAndConditionText() {
-       let label = UILabel()
-       scrollView.addSubview(label)
-       
-       let strNumber: NSString = "By clicking on Sign up, you agree to our terms & conditions and privacy policy." as NSString
-       let rangeOne = (strNumber).range(of: "terms & conditions")
-       let rangeTwo = (strNumber).range(of: "privacy policy.")
-       let attribute = NSMutableAttributedString.init(string: strNumber as String)
-       
+        let label = UILabel()
+        scrollView.addSubview(label)
+        
+        let strNumber: NSString = "By clicking on Sign up, you agree to our terms & conditions and privacy policy." as NSString
+        let rangeOne = (strNumber).range(of: "terms & conditions")
+        let rangeTwo = (strNumber).range(of: "privacy policy.")
+        let attribute = NSMutableAttributedString.init(string: strNumber as String)
+        
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: fundallColorOne, range: rangeOne)
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: fundallColorOne, range: rangeTwo)
         label.attributedText = attribute
         label.font = UIFont(name: "FoundersGrotesk-Regular", size: 10)
-       
-       
-       label.snp.makeConstraints { (make) in
-          make.centerX.equalTo(scrollView)
-          make.top.equalTo(signUpButton.snp.bottom).offset(200)
-       }
+        
+        
+        label.snp.makeConstraints { (make) in
+            make.centerX.equalTo(scrollView)
+            make.top.equalTo(signUpButton.snp.bottom).offset(200)
+        }
     }
 }
 
-
-
+//
+//extension SignupViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == firstNameTextField {
+//            lastNameTextField.becomeFirstResponder()
+//        } else if textField == lastNameTextField {
+//            emailTextField.becomeFirstResponder()
+//        } else if textField == emailTextField {
+//            phoneNumberTextField.becomeFirstResponder()
+//        } else if textField == phoneNumberTextField {
+//            passwordTextField.becomeFirstResponder()
+//        } else if textField == passwordTextField {
+//            dismissKeyboard()
+//            didPressSignUpBtn()
+//        }
+//        return true
+//    }
+//}

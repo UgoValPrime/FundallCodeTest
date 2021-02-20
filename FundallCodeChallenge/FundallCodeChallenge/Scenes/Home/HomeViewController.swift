@@ -152,12 +152,21 @@ class HomeViewController: UIViewController {
         logoutButton = UIButton()
         cardView.addSubview(logoutButton)
         logoutButton.setImage(UIImage(named: "logout"), for: .normal)
+        logoutButton.isUserInteractionEnabled = true
+        let loginLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressLogout))
+        logoutButton.addGestureRecognizer(loginLabelTapGesture)
         logoutButton.snp.makeConstraints { (make) in
             make.top.equalTo(cardView).offset(95)
             make.left.equalTo(cardView.snp.left).offset(20)
             make.height.equalTo(cardView.snp.height).multipliedBy(0.08)
             make.width.equalTo(cardView.snp.width).multipliedBy(0.09)
         }
+    }
+    
+    
+    @objc func didPressLogout() {
+        let view = UINavigationController(rootViewController: LoginViewController())
+        navigationController?.pushViewController(view, animated: true)
     }
     
     func setupTotalBalanceLabel () {
